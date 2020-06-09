@@ -14,13 +14,13 @@ namespace TestRedisAzure
 
 			IDatabase database = lazyConnection.Value.GetDatabase();
 			
-			Console.WriteLine(database.StringGet("Kumulus"));
-			database.StringSet("Kumulus", "Test Redis");
-			Console.WriteLine(database.StringGet("Kumulus"));
+			Console.WriteLine(database.StringGet("Empresa"));
+			database.StringSet("Empresa", "Test Redis");
+			Console.WriteLine(database.StringGet("Empresa"));
 
-			Console.WriteLine(database.StringGet("Kumulus2"));
-			database.StringSet("Kumulus2", "Test Redis2");
-			Console.WriteLine(database.StringGet("Kumulus2"));
+			Console.WriteLine(database.StringGet("Empresa2"));
+			database.StringSet("Empresa2", "Test Redis2");
+			Console.WriteLine(database.StringGet("Empresa2"));
 
 			Console.ReadKey();
 
@@ -30,7 +30,7 @@ namespace TestRedisAzure
 		private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 		{
 			//Adicione a string Primary connection string (StackExchange.Redis)
-			//Encontra-se na sessão: Access Keys da Azure dentro do serviço Azure Redis Cache
+			//Encontra-se na sessão: Access Keys do Azure dentro do serviço Azure Redis Cache
 			string connectionString = "";
 
 			return ConnectionMultiplexer.Connect(connectionString);
